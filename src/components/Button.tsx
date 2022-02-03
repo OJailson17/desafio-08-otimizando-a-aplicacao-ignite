@@ -9,7 +9,7 @@ interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   selected: boolean;
 }
 
-function ButtonComponent({ iconName, title, selected, ...rest }: ButtonProps) {
+export function Button({ iconName, title, selected, ...rest }: ButtonProps) {
   return (
     <button
       type='button'
@@ -21,7 +21,3 @@ function ButtonComponent({ iconName, title, selected, ...rest }: ButtonProps) {
     </button>
   );
 }
-
-export const Button = memo(ButtonComponent, (prevProps, nextProps) => {
-  return Object.is(prevProps?.selected, nextProps?.selected);
-});
