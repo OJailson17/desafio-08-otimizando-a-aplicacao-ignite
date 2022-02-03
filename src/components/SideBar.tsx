@@ -1,4 +1,5 @@
-import { Button } from "./Button";
+import { useMemo } from 'react';
+import { Button } from './Button';
 
 interface SideBarProps {
   genres: Array<{
@@ -10,16 +11,18 @@ interface SideBarProps {
   buttonClickCallback: (args: any) => void;
 }
 
-export function SideBar({
+export const SideBar = ({
   genres,
   selectedGenreId,
-  buttonClickCallback
-}: SideBarProps) {
+  buttonClickCallback,
+}: SideBarProps) => {
   return (
-    <nav className="sidebar">
-      <span>Watch<p>Me</p></span>
+    <nav className='sidebar'>
+      <span>
+        Watch<p>Me</p>
+      </span>
 
-      <div className="buttons-container">
+      <div className='buttons-container'>
         {genres.map(genre => (
           <Button
             key={String(genre.id)}
@@ -30,7 +33,6 @@ export function SideBar({
           />
         ))}
       </div>
-
     </nav>
-  )
-}
+  );
+};
